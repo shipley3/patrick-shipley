@@ -1,13 +1,28 @@
-console.log("hi");
+console.log("js ready");
 
 document.getElementById("copy-email").addEventListener("click", copyFunc);
 
-function copyFunc(elem){
-    console.log("hi2");
+document.getElementById("copy-email").addEventListener("mousedown", changeIconDown);
+
+document.getElementById("copy-email").addEventListener("mouseup", changeIconUp);
+
+function copyFunc(){
+
 
     var copyText = "ptrck.ship@gmail.com";
 
     navigator.clipboard.writeText(copyText);
 
-    alert("Copied!");
+    console.log("copied!");
+
 };
+
+function changeIconDown(){
+    document.getElementById("copy-sticky").className = "bi bi-sticky-fill";
+}
+
+function changeIconUp(){
+    setTimeout(function(){
+        document.getElementById("copy-sticky").className = "bi bi-sticky";
+    }, 300);
+}
